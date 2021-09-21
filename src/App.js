@@ -1,8 +1,9 @@
-import UserList from './components/UserList/UserList';
+import './App.css'
+import Main from './components/Main/Main';
 
 const App = () => {
     return (
-        <UserList/>
+        <Main />
     )
 }
 

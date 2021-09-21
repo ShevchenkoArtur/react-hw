@@ -1,16 +1,13 @@
-import React, {useState} from 'react';
-import {userData} from '../../userData';
+import React from 'react';
 import UserCard from '../UserCard/UserCard';
 import style from './UserList.module.css'
 
 
-const UserList = props => {
-    const [users, setUsers] = useState(userData)
-
+const UserList = ({filteredArr}) => {
     return (
         <div className={style.list}>
             {
-                users.map(el => <UserCard key={el._id} users={el}/>)
+                filteredArr.map(el => <UserCard key={el._id} users={el} />)
             }
         </div>
     )

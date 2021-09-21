@@ -18,9 +18,3 @@ code {
     monospace;
 }
 
-#root {
-  max-width: 1980px;
-  margin: 0 auto;
-  padding: 16px;
-  overflow: hidden;
-}

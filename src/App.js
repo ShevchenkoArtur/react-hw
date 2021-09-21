@@ -1,10 +1,9 @@
-import './App.css';
+import UserList from './components/UserList/UserList';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+const App = () => {
+    return (
+        <UserList/>
+    )
 }
 
 export default App;

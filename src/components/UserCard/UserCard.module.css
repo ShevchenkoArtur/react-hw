@@ -1,0 +1,11 @@
+.wrapper {
+    flex-basis: 25%;
+    padding: 0 8px 16px 8px;
+}
+
+.card {
+    font-size: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 16px;
+}

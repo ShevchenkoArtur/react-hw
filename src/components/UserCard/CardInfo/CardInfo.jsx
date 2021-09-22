@@ -1,13 +1,13 @@
 import React from 'react';
 import style from './CardInfo.module.css'
 
-const CardInfo = ({users}) => {
+const CardInfo = ({user}) => {
     return (
         <div className={style.info}>
-            <p>Name: {users.name}</p>
-            <p>Age: {users.age}</p>
-            <p>Gender: {users.gender}</p>
-            <p>Balance: {users.balance}</p>
+            <p>Name: {user.name}</p>
+            <p>Age: {user.age}</p>
+            <p>Gender: {user.gender}</p>
+            <p>Balance: {user.balance}</p>
         </div>
     )
 }

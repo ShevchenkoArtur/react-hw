@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './Header.module.css'
-import Search from './Search/Search';
+import FilterForm from './FilterForm/FilterForm';
 
-const Header = ({setFilter, filter}) => {
+const Header = ({setFilter, filter, sort, setSort}) => {
     return (
         <header className={style.header}>
-            <Search setFilter={setFilter} filter={filter}/>
+            <FilterForm setFilter={setFilter} filter={filter} sort={sort} setSort={setSort}/>
         </header>
     )
 }

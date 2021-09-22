@@ -2,7 +2,6 @@ import React from 'react';
 import style from './Modal.module.css'
 
 const Modal = ({closeModal, user}) => {
-    console.log(user)
     return (
         <div className={style.modal}>
             <div className={style.content} onClick={(e) => e.stopPropagation()}>

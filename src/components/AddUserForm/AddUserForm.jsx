@@ -41,7 +41,7 @@ const AddUserForm = ({addInputs, setAddInputs, setUsers, closeModal}) => {
 
     const addNewUser = (e) => {
         e.preventDefault()
-        if (addInputs.name && addInputs.age && addInputs.balance && genderSelect) {
+        if (addInputs.name.value && addInputs.age.value && addInputs.balance.value && genderSelect) {
             setUsers(prev => {
                 return [...prev,
                     {

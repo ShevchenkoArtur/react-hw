@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     z-index: 1000;
-    padding-top: 100px;
+    padding: 16px 0;
     left: 0;
     top: 0;
     width: 100%;
@@ -13,10 +13,10 @@
 
 .content {
     position: relative;
-    background-color: #eee;
+    background-color: #fff;
     margin: auto;
     padding: 0;
-    border: 3px solid #000;
+    border: 2px solid #000;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -38,7 +38,8 @@
     cursor: pointer;
 }
 
-.body {
+.modalBody {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
-

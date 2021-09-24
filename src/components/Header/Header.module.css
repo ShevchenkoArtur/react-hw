@@ -9,6 +9,12 @@
     padding: 16px;
 }
 
-.header form {
-    display: flex;
+.btn {
+    background-color: #069a06;
+    color: #fff;
+    margin-right: 16px;
+}
+
+.btn:hover {
+    background-color: #05af05;
 }

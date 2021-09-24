@@ -24,7 +24,7 @@ const Main = () => {
 
     return (
         <main className={style.wrapper}>
-            <Header filter={filter} setFilter={setFilter} sort={sort} setSort={setSort}/>
+            <Header filter={filter} setFilter={setFilter} sort={sort} setSort={setSort} setUsers={setUsers}/>
             <UserList filteredArr={filteredArr}/>
         </main>
     )

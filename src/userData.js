@@ -1,47 +1,47 @@
 export const userData = [{
-        "_id": "5e432b58faf99afb6f468ebf",
-        "index": 0,
-        "guid": "d33555f3-3f2c-44cf-bff5-7924a567b88b",
-        "isActive": true,
-        "balance": "$3,126.17",
-        "picture": "http://placehold.it/32x32",
-        "age": 24,
-        "eyeColor": "brown",
-        "name": "Robinson Lloyd",
-        "gender": "male",
-        "company": "TROLLERY",
-        "email": "robinsonlloyd@trollery.com",
-        "phone": "+1 (999) 427-3302",
-        "address": "796 Prospect Avenue, Thomasville, Kansas, 4553",
-        "about": "Amet proident consectetur ipsum eu eu. Exercitation tempor ea esse pariatur eu officia nostrud dolore exercitation esse incididunt consequat. Voluptate irure occaecat mollit pariatur voluptate sint cillum esse magna consequat consequat et est est. Est incididunt duis aliqua aute reprehenderit qui enim consectetur velit in fugiat. Dolore laborum culpa labore minim tempor. Deserunt pariatur amet aliqua proident minim laborum pariatur culpa veniam eu laborum consectetur elit.\r\n",
-        "registered": "2018-05-30T12:29:44 -03:00",
-        "latitude": 47.531087,
-        "longitude": -39.721881,
-        "tags": [
-            "eiusmod",
-            "ex",
-            "veniam",
-            "quis",
-            "sint",
-            "voluptate",
-            "sunt"
-        ],
-        "friends": [{
-                "id": 0,
-                "name": "Eugenia Barton"
-            },
-            {
-                "id": 1,
-                "name": "Elnora Coffey"
-            },
-            {
-                "id": 2,
-                "name": "Janice Munoz"
-            }
-        ],
-        "greeting": "Hello, Robinson Lloyd! You have 9 unread messages.",
-        "favoriteFruit": "apple"
+    "_id": "5e432b58faf99afb6f468ebf",
+    "index": 0,
+    "guid": "d33555f3-3f2c-44cf-bff5-7924a567b88b",
+    "isActive": true,
+    "balance": "$3,126.17",
+    "picture": "http://placehold.it/32x32",
+    "age": 24,
+    "eyeColor": "brown",
+    "name": "Robinson Lloyd",
+    "gender": "male",
+    "company": "TROLLERY",
+    "email": "robinsonlloyd@trollery.com",
+    "phone": "+1 (999) 427-3302",
+    "address": "796 Prospect Avenue, Thomasville, Kansas, 4553",
+    "about": "Amet proident consectetur ipsum eu eu. Exercitation tempor ea esse pariatur eu officia nostrud dolore exercitation esse incididunt consequat. Voluptate irure occaecat mollit pariatur voluptate sint cillum esse magna consequat consequat et est est. Est incididunt duis aliqua aute reprehenderit qui enim consectetur velit in fugiat. Dolore laborum culpa labore minim tempor. Deserunt pariatur amet aliqua proident minim laborum pariatur culpa veniam eu laborum consectetur elit.\r\n",
+    "registered": "2018-05-30T12:29:44 -03:00",
+    "latitude": 47.531087,
+    "longitude": -39.721881,
+    "tags": [
+        "eiusmod",
+        "ex",
+        "veniam",
+        "quis",
+        "sint",
+        "voluptate",
+        "sunt"
+    ],
+    "friends": [{
+        "id": 0,
+        "name": "Eugenia Barton"
     },
+        {
+            "id": 1,
+            "name": "Elnora Coffey"
+        },
+        {
+            "id": 2,
+            "name": "Janice Munoz"
+        }
+    ],
+    "greeting": "Hello, Robinson Lloyd! You have 9 unread messages.",
+    "favoriteFruit": "apple"
+},
     {
         "_id": "5e432b58153d679ca5f78724",
         "index": 1,
@@ -71,9 +71,9 @@ export const userData = [{
             "dolore"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Gallegos Calderon"
-            },
+            "id": 0,
+            "name": "Gallegos Calderon"
+        },
             {
                 "id": 1,
                 "name": "Jacqueline Cooke"
@@ -115,9 +115,9 @@ export const userData = [{
             "laborum"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Leola Solomon"
-            },
+            "id": 0,
+            "name": "Leola Solomon"
+        },
             {
                 "id": 1,
                 "name": "Monique Rollins"
@@ -159,9 +159,9 @@ export const userData = [{
             "culpa"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Marina Cash"
-            },
+            "id": 0,
+            "name": "Marina Cash"
+        },
             {
                 "id": 1,
                 "name": "Molly Harris"
@@ -203,9 +203,9 @@ export const userData = [{
             "tempor"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Peggy Giles"
-            },
+            "id": 0,
+            "name": "Peggy Giles"
+        },
             {
                 "id": 1,
                 "name": "Gilliam Meadows"
@@ -247,9 +247,9 @@ export const userData = [{
             "aute"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Marion Bell"
-            },
+            "id": 0,
+            "name": "Marion Bell"
+        },
             {
                 "id": 1,
                 "name": "Leon Lowery"
@@ -291,9 +291,9 @@ export const userData = [{
             "minim"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Cora Evans"
-            },
+            "id": 0,
+            "name": "Cora Evans"
+        },
             {
                 "id": 1,
                 "name": "Ortiz Riggs"
@@ -335,9 +335,9 @@ export const userData = [{
             "anim"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Latisha Ross"
-            },
+            "id": 0,
+            "name": "Latisha Ross"
+        },
             {
                 "id": 1,
                 "name": "Padilla Hopkins"
@@ -379,9 +379,9 @@ export const userData = [{
             "deserunt"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Leblanc Vance"
-            },
+            "id": 0,
+            "name": "Leblanc Vance"
+        },
             {
                 "id": 1,
                 "name": "Lucille Lara"
@@ -423,9 +423,9 @@ export const userData = [{
             "laboris"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Chen Lawson"
-            },
+            "id": 0,
+            "name": "Chen Lawson"
+        },
             {
                 "id": 1,
                 "name": "Day Garrett"
@@ -467,9 +467,9 @@ export const userData = [{
             "cillum"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Guzman Powell"
-            },
+            "id": 0,
+            "name": "Guzman Powell"
+        },
             {
                 "id": 1,
                 "name": "Phillips Anthony"
@@ -511,9 +511,9 @@ export const userData = [{
             "dolor"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Ellison Goodwin"
-            },
+            "id": 0,
+            "name": "Ellison Goodwin"
+        },
             {
                 "id": 1,
                 "name": "Allison Davidson"
@@ -555,9 +555,9 @@ export const userData = [{
             "ullamco"
         ],
         "friends": [{
-                "id": 0,
-                "name": "Carolyn Hull"
-            },
+            "id": 0,
+            "name": "Carolyn Hull"
+        },
             {
                 "id": 1,
                 "name": "Boone Alexander"

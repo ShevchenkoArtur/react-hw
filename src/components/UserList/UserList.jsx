@@ -3,10 +3,19 @@ import UserCard from '../UserCard/UserCard';
 import style from './UserList.module.css'
 
 const UserList = ({filteredArr}) => {
+    const notFoundMessageStyles = {
+        fontWeight: 'bold',
+        fontSize: '18px'
+    }
+
     return (
-        <div className={style.list}>
+        <div className={filteredArr.length ? style.foundList : style.notFoundList}>
             {
-                filteredArr.map(el => <UserCard key={el._id} user={el} />)
+                filteredArr.length
+                    ?
+                    filteredArr.map(el => <UserCard key={el._id} user={el}/>)
+                    :
+                    <span style={notFoundMessageStyles}>Users not found</span>
             }
         </div>
     )

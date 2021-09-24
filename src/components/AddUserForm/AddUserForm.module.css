@@ -1,0 +1,27 @@
+.select {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    width: 100%;
+    border-radius: 3px;
+    padding: 4px;
+    border: 1px solid grey;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.formBtn {
+    background-color: #069a06;
+    color: #fff;
+    width: 100%;
+}
+
+.formBtn:hover {
+    background-color: #05af05;
+}
+
+.optionalHeader {
+    text-align: center;
+}

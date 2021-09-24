@@ -1,3 +1,7 @@
+.form {
+    display: flex;
+}
+
 .formBtn {
     display: flex;
     justify-content: center;

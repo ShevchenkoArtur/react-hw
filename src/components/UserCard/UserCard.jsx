@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import CardImage from './CardImage/CardImage';
 import CardInfo from './CardInfo/CardInfo';
 import style from './UserCard.module.css'
-import Modal from '../Modal/Modal';
+import DetailsModal from '../DetailsModal/DetailsModal';
 
 const UserCard = ({user}) => {
     const [isOpenModal, setIsOpenModal] = useState(false)
@@ -11,11 +11,12 @@ const UserCard = ({user}) => {
 
     return (
         <div className={style.wrapper}>
-            <div className={style.card} onClick={openModal}>
+            <div className={style.card}>
                 <CardImage picture={user.picture}/>
                 <CardInfo user={user}/>
+                <button className={`${style.btn} button`} onClick={openModal}>Details</button>
                 {
-                    isOpenModal ? <Modal closeModal={closeModal} user={user}/> : ''
+                    isOpenModal ? <DetailsModal closeModal={closeModal} user={user}/> : ''
                 }
             </div>
         </div>

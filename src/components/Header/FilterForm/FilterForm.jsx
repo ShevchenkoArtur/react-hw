@@ -13,7 +13,7 @@ const FilterForm = ({setFilter, filter, sort, setSort}) => {
     }
 
     return (
-        <form>
+        <form className={style.form}>
             <Search setFilter={setFilter} filter={filter}/>
             <Sort sort={sort} setSort={setSort}/>
             <button className={style.formBtn} onClick={resetInputs}>

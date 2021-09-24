@@ -1,6 +1,13 @@
-.list {
+.foundList {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -8px -16px -8px;
     padding: 0 16px;
+}
+
+.notFoundList {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

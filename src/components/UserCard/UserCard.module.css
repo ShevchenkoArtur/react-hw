@@ -13,3 +13,12 @@
     flex-direction: column;
     width: 100%;
 }
+
+.btn {
+    background-color: #045bd5;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #0266ec;
+}

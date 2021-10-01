@@ -1,10 +1,12 @@
 import './App.css';
+import Timer from './components/Timer/Timer';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+const App = () => {
+    return (
+        <main className='wrapper'>
+            <Timer/>
+        </main>
+    )
 }
 
 export default App;

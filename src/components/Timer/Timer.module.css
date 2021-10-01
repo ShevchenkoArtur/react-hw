@@ -1,0 +1,26 @@
+.timer {
+    text-align: center;
+}
+
+.list {
+    margin: 8px 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.startBtn {
+    background-color: green;
+}
+
+.continueBtn {
+    background-color: purple;
+}
+
+.stopBtn {
+    background-color: red;
+    margin: 0 8px;
+}
+
+.resetBtn {
+    background-color: orange;
+}

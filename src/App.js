@@ -1,10 +1,14 @@
 import './App.css';
+import Main from './components/Main/Main';
+import FormProvider from './context/FormProvider';
+import formReducer, {initialState} from './reducers/formReducer/formReducer';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+const App = () => {
+    return (
+        <FormProvider formReducer={formReducer} initialState={initialState}>
+            <Main/>
+        </FormProvider>
+    )
 }
 
 export default App;

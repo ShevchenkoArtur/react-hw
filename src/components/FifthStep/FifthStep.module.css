@@ -1,0 +1,13 @@
+.imageBorder {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+}
+
+.imageBorder img {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid grey;
+    border-radius: 50%;
+    max-width: 100%;
+}

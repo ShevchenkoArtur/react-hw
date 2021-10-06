@@ -70,7 +70,7 @@ const Timer = () => {
             <button className={`${stopped ? style.continueBtn : style.startBtn} button`} onClick={start}>
                 {stopped ? 'Continue' : 'Start'}
             </button>
-            <button className={`${style.stopBtn} button`} onClick={stop}>Stop</button>
+            <button className={`${style.stopBtn} button`} onClick={stop} disabled={!started}>Stop</button>
             <button className={`${style.resetBtn} button`} onClick={reset}>Reset</button>
 
             <ul className={style.list}>

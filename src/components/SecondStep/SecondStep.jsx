@@ -9,7 +9,6 @@ import FormContainer from '../FormContainer/FormContainer';
 import FormHeading from '../FormHeading/FormHeading';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-
 const SecondStep = () => {
     const [state, dispatch] = useFormStore()
 
@@ -25,7 +24,6 @@ const SecondStep = () => {
     })
 
     const onSubmit = () => dispatch(changeStep(3))
-
 
     return (
         <FormContainer>
@@ -43,6 +41,8 @@ const SecondStep = () => {
                         required
                         type='text'
                         error={!!errors.town}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
 
                     <ErrorMessage>{errors?.town?.message}</ErrorMessage>
@@ -58,6 +58,8 @@ const SecondStep = () => {
                         required
                         type='text'
                         error={!!errors.street}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
 
                     <ErrorMessage>{errors?.street?.message}</ErrorMessage>
@@ -73,6 +75,8 @@ const SecondStep = () => {
                         required
                         type='text'
                         error={!!errors.house}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
 
                     <ErrorMessage>{errors?.house?.message}</ErrorMessage>

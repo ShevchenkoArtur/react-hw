@@ -1,4 +1,4 @@
-import {CHANGE_STEP, UPDATE_INPUTS,} from './formAction';
+import {CHANGE_STEP, TOGGLE_THEME, UPDATE_INPUTS,} from './formAction';
 
 export const initialState = {
     step: 1,
@@ -16,10 +16,12 @@ export const initialState = {
         },
         password: '',
         confirmedPassword: ''
-    }
+    },
+
+    isDarkTheme: false,
 }
 
-const formReducer = (state=initialState, action) => {
+const formReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_STEP:
             return {
@@ -33,6 +35,11 @@ const formReducer = (state=initialState, action) => {
                     ...state.userData,
                     [action.payload.inputName]: action.payload.newValue
                 }
+            }
+        case TOGGLE_THEME:
+            return {
+                ...state,
+                isDarkTheme: !state.isDarkTheme
             }
         default:
             return state

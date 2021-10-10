@@ -1,9 +1,13 @@
 import React from 'react';
 import {Typography} from '@material-ui/core';
+import {useFormStore} from "../../context/FormProvider";
 
 const FormHeading = ({children, props}) => {
+    const [state, dispatch] = useFormStore()
+    const colorHeading = state.isDarkTheme ? {color: '#fff'} : {color: '#000'}
+
     return (
-        <Typography variant='h6' align='center' {...props}>
+        <Typography style={colorHeading} variant='h6' align='center' {...props}>
             {children}
         </Typography>
     )

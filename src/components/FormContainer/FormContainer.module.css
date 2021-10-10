@@ -1,0 +1,21 @@
+.container {
+    border: 1px solid grey;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 100px 0 8px 0;
+}
+
+.lightBg {
+    background-color: inherit;
+}
+
+.darkBg {
+    background-color: darkslategray;
+    color: #fff;
+}
+
+.btn {
+    background: inherit;
+    border: 0;
+    cursor: pointer;
+}

@@ -41,6 +41,8 @@ const FourthStep = () => {
                         required
                         type='password'
                         error={!!errors.password}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
                     <Typography variant="inherit" color="textSecondary">
                         {errors?.password?.message}
@@ -57,6 +59,8 @@ const FourthStep = () => {
                         required
                         type='password'
                         error={!!errors.confirmedPassword}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
                     <Typography variant="inherit" color="textSecondary">
                         {errors?.confirmedPassword?.message}

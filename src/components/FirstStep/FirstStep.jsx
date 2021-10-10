@@ -41,6 +41,8 @@ const FirstStep = () => {
                         required
                         type='text'
                         error={!!errors.firstName}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
                     <ErrorMessage>
                         {errors?.firstName?.message}
@@ -57,6 +59,8 @@ const FirstStep = () => {
                         required
                         type='text'
                         error={!!errors.lastName}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
 
                     <ErrorMessage>{errors?.lastName?.message}</ErrorMessage>
@@ -72,6 +76,8 @@ const FirstStep = () => {
                         required
                         type='email'
                         error={!!errors.email}
+                        variant='filled'
+                        style={{backgroundColor: '#fff'}}
                     />
                     <ErrorMessage>
                         {errors?.email?.message}

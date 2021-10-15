@@ -1,10 +1,14 @@
-import './App.css';
+import Game from './components/Game/Game';
+import './App.scss';
+import GameProvider from './context/gameContext';
+import {gameReducer, initialState} from './reducers/gameReducer/gameReducer';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+const App = () => {
+    return (
+        <GameProvider initialState={initialState} reducer={gameReducer}>
+            <Game/>
+        </GameProvider>
+    )
 }
 
 export default App;

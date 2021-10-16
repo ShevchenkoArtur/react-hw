@@ -1,7 +1,7 @@
 import {gameParams} from '../../constants';
 import {
     ADD_TO_HISTORY,
-    CHANGE_FIRST_SIGN_TURN, RESET_INPUTS,
+    CHANGE_FIRST_SIGN_TURN, RESET_INPUTS, RESET_NICKNAMES, SAVE_NICKNAMES,
     SET_WINNER, START_NEW_GAME, TOGGLE_MODAL_OPENER,
     TOGGLE_START_GAME, UPDATE_INPUTS, UPDATE_STEP_HISTORY
 } from './gameActions';
@@ -23,6 +23,11 @@ export const initialState = {
             firstPlayerName: '',
             secondPlayerName: '',
         }
+    },
+
+    inputValues: {
+        firstPlayerName: '',
+        secondPlayerName: '',
     }
 }
 
@@ -97,15 +102,33 @@ export const gameReducer = (state = initialState, action) => {
         case UPDATE_INPUTS:
             return {
                 ...state,
+                inputValues: {
+                    ...state.inputValues,
+                    [action.payload.inputName]: action.payload.newValue
+                }
+            }
+        case RESET_INPUTS:
+            return {
+                ...state,
+                inputValues: {
+                    ...state.inputValues,
+                    firstPlayerName: '',
+                    secondPlayerName: ''
+                }
+            }
+        case SAVE_NICKNAMES:
+            return {
+                ...state,
                 players: {
                     ...state.players,
                     nicknames: {
                         ...state.players.nicknames,
-                        [action.payload.inputName]: action.payload.newValue
+                        firstPlayerName: state.inputValues.firstPlayerName,
+                        secondPlayerName: state.inputValues.secondPlayerName
                     }
                 }
             }
-        case RESET_INPUTS:
+        case RESET_NICKNAMES:
             return {
                 ...state,
                 players: {

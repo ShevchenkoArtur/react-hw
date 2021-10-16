@@ -1,10 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {Box, Button, TextField, Typography} from '@material-ui/core';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useGameStore} from '../../../context/gameContext';
-import {resetInputs, toggleModalOpener, updateInputs} from '../../../reducers/gameReducer/gameActions';
+import {
+    resetInputs,
+    resetNicknames,
+    saveNicknames,
+    toggleModalOpener,
+    updateInputs
+} from '../../../reducers/gameReducer/gameActions';
 
 const NicknamesForm = () => {
     const [state, dispatch] = useGameStore()
@@ -23,8 +29,14 @@ const NicknamesForm = () => {
     })
 
     const onCancelClick = () => {
-        dispatch(resetInputs())
+        dispatch(resetNicknames())
         dispatch(toggleModalOpener())
+        dispatch(resetInputs())
+    }
+    const onSaveClick = () => {
+        dispatch(saveNicknames())
+        dispatch(toggleModalOpener())
+        dispatch(resetInputs())
     }
 
     return (
@@ -33,7 +45,7 @@ const NicknamesForm = () => {
             <Box>
                 <TextField
                     {...register('firstPlayerName')}
-                    value={state.players.nicknames.firstPlayerName}
+                    value={state.inputValues.firstPlayerName}
                     onChange={(e) => dispatch(updateInputs('firstPlayerName', e.target.value))}
                     fullWidth
                     label='First Player'
@@ -45,7 +57,7 @@ const NicknamesForm = () => {
             <Box>
                 <TextField
                     {...register('secondPlayerName')}
-                    value={state.players.nicknames.secondPlayerName}
+                    value={state.inputValues.secondPlayerName}
                     onChange={(e) => dispatch(updateInputs('secondPlayerName', e.target.value))}
                     fullWidth
                     margin='normal'
@@ -54,14 +66,23 @@ const NicknamesForm = () => {
                 />
                 <Typography color='textSecondary'>{errors?.firstPlayerName?.message}</Typography>
             </Box>
-            <Box mt={3}>
+            <Box display='flex' mt={3}>
                 <Button
                     fullWidth
                     variant='contained'
-                    style={{backgroundColor: '#b66a21', color: '#fff', marginRight: '4px'}}
+                    style={{backgroundColor: '#dc6533', color: '#fff', marginRight: '4px'}}
                     onClick={onCancelClick}
                 >
                     Reset
+                </Button>
+                <Button
+                    type='submit'
+                    fullWidth
+                    variant='contained'
+                    style={{backgroundColor: '#0c8437', color: '#fff', marginLeft: '4px'}}
+                    onClick={onSaveClick}
+                >
+                    Save
                 </Button>
             </Box>
         </form>

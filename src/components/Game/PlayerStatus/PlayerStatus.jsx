@@ -10,10 +10,10 @@ const PlayerStatus = () => {
     const showStatus = () => {
         const player = state.players.nicknames
 
-        if(state.winner === 'Draw') return 'Draw'
+        if (state.winner === 'Draw') return 'Draw'
 
         if (player.firstPlayerName && player.secondPlayerName) {
-            if (state.winner && state.winner) {
+            if (state.winner) {
                 return `The Winner is ${state.winner === 'X' ? player.firstPlayerName : player.secondPlayerName}`
             } else {
                 return `Next player is ${currentStep.isXTurn ? player.firstPlayerName : player.secondPlayerName}`

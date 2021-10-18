@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
-    addToHistory,
+    addToHistory, giveUp,
     setWinner, startNewGame, toggleModalOpener,
     toggleStartGame,
 } from '../../reducers/gameReducer/gameActions';
@@ -31,6 +31,12 @@ const Game = () => {
         dispatch(toggleStartGame(true))
     }
 
+    useEffect(() => {
+        if (state.winner) {
+            dispatch(toggleStartGame(false))
+        }
+    }, [state.winner])
+
     return (
         <Box className="game">
             <Board squares={currentStep.squares} onClick={handleClick}/>
@@ -53,6 +59,20 @@ const Game = () => {
                 }
 
                 <PlayerStatus/>
+
+                <Box mt={2}>
+                    {
+                        state.isGameStarted && <Button
+                            style={{backgroundColor: '#dc6533', color: '#fff'}}
+                            variant='contained'
+                            fullWidth
+                            onClick={() => dispatch(giveUp())}
+                        >
+                            Give up
+                        </Button>
+                    }
+                </Box>
+
                 <StepHistory/>
 
                 {

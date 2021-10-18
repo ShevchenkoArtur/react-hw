@@ -1,7 +1,7 @@
 import {gameParams} from '../../constants';
 import {
     ADD_TO_HISTORY,
-    CHANGE_FIRST_SIGN_TURN, RESET_INPUTS, RESET_NICKNAMES, SAVE_NICKNAMES,
+    CHANGE_FIRST_SIGN_TURN, GIVE_UP, RESET_INPUTS, RESET_NICKNAMES, SAVE_NICKNAMES,
     SET_WINNER, START_NEW_GAME, TOGGLE_MODAL_OPENER,
     TOGGLE_START_GAME, UPDATE_INPUTS, UPDATE_STEP_HISTORY
 } from './gameActions';
@@ -139,6 +139,15 @@ export const gameReducer = (state = initialState, action) => {
                         secondPlayerName: ''
                     }
                 }
+            }
+        case GIVE_UP:
+            const currentStep = state.history[state.history.length - 1]
+            let winner = null
+            currentStep.isXTurn ? winner = 'O' : winner = 'X'
+            return {
+                ...state,
+                winner: winner,
+                isGameStarted: false
             }
         default:
             return state

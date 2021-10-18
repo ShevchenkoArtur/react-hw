@@ -9,6 +9,7 @@ export const UPDATE_INPUTS = 'UPDATE_INPUTS'
 export const RESET_INPUTS = 'RESET_INPUTS'
 export const SAVE_NICKNAMES = 'SAVE_NICKNAMES'
 export const RESET_NICKNAMES = 'RESET_NICKNAMES'
+export const GIVE_UP = 'GIVE_UP'
 
 export const addToHistory = (squares) => ({type: ADD_TO_HISTORY, payload: {squares}})
 export const toggleStartGame = (bool) => ({type: TOGGLE_START_GAME, payload: {bool}})
@@ -21,4 +22,6 @@ export const updateInputs = (inputName, newValue) => ({type: UPDATE_INPUTS, payl
 export const resetInputs = () => ({type: RESET_INPUTS})
 export const saveNicknames = () => ({type: SAVE_NICKNAMES})
 export const resetNicknames = () => ({type: RESET_NICKNAMES})
+export const giveUp = () => ({type: GIVE_UP})
+
 

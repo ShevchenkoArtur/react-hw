@@ -11,6 +11,7 @@ export const SAVE_NICKNAMES = 'SAVE_NICKNAMES'
 export const RESET_NICKNAMES = 'RESET_NICKNAMES'
 export const GIVE_UP = 'GIVE_UP'
 export const ADD_WINNER_TO_HISTORY = 'ADD_WINNER_TO_HISTORY'
+export const UPDATE_WINNER_HISTORY = 'UPDATE_WINNER_HISTORY'
 
 export const addToHistory = (squares) => ({type: ADD_TO_HISTORY, payload: {squares}})
 export const toggleStartGame = (bool) => ({type: TOGGLE_START_GAME, payload: {bool}})
@@ -25,5 +26,6 @@ export const saveNicknames = () => ({type: SAVE_NICKNAMES})
 export const resetNicknames = () => ({type: RESET_NICKNAMES})
 export const giveUp = () => ({type: GIVE_UP})
 export const addWinnerToHistory = (date) => ({type: ADD_WINNER_TO_HISTORY, payload: {date}})
+export const updateWinnerHistory = (winners) => ({type: UPDATE_WINNER_HISTORY, payload: {winners}})
 
 

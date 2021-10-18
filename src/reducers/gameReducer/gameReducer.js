@@ -3,7 +3,7 @@ import {
     ADD_TO_HISTORY, ADD_WINNER_TO_HISTORY,
     CHANGE_FIRST_SIGN_TURN, GIVE_UP, RESET_INPUTS, RESET_NICKNAMES, SAVE_NICKNAMES,
     SET_WINNER, START_NEW_GAME, TOGGLE_MODAL_OPENER,
-    TOGGLE_START_GAME, UPDATE_INPUTS, UPDATE_STEP_HISTORY
+    TOGGLE_START_GAME, UPDATE_INPUTS, UPDATE_STEP_HISTORY, UPDATE_WINNER_HISTORY
 } from './gameActions';
 
 export const initialState = {
@@ -66,6 +66,11 @@ export const gameReducer = (state = initialState, action) => {
                 ]
             }
         }
+        case UPDATE_WINNER_HISTORY:
+            return {
+                ...state,
+                winnerHistory: [...state.winnerHistory, ...action.payload.winners]
+            }
         case TOGGLE_START_GAME:
             return {
                 ...state,

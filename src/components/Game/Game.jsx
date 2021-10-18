@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {
     addToHistory, addWinnerToHistory, giveUp,
     setWinner, startNewGame, toggleModalOpener,
-    toggleStartGame,
+    toggleStartGame, updateWinnerHistory,
 } from '../../reducers/gameReducer/gameActions';
 import './Game.scss';
 import Board from '../Board/Board';
@@ -33,9 +33,18 @@ const Game = () => {
     }
 
     useEffect(() => {
+        if (localStorage.getItem('winnerHistory')) {
+            dispatch(updateWinnerHistory(JSON.parse(localStorage.getItem('winnerHistory'))))
+        } else {
+            localStorage.setItem('winnerHistory', JSON.stringify([]))
+        }
+    }, [])
+
+    useEffect(() => {
         if (state.winner) {
             if (state.winner !== 'Draw') {
                 dispatch(addWinnerToHistory(new Date()))
+                localStorage.setItem('winnerHistory', JSON.stringify(state.winnerHistory))
             }
             dispatch(toggleStartGame(false))
         }

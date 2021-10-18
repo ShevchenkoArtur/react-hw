@@ -34,7 +34,9 @@ const Game = () => {
 
     useEffect(() => {
         if (state.winner) {
-            dispatch(addWinnerToHistory(new Date()))
+            if (state.winner !== 'Draw') {
+                dispatch(addWinnerToHistory(new Date()))
+            }
             dispatch(toggleStartGame(false))
         }
     }, [state.winner])

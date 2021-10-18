@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {
-    addToHistory, giveUp,
+    addToHistory, addWinnerToHistory, giveUp,
     setWinner, startNewGame, toggleModalOpener,
     toggleStartGame,
 } from '../../reducers/gameReducer/gameActions';
@@ -13,6 +13,7 @@ import StepHistory from './StepHistory/StepHistory';
 import PlayerStatus from './PlayerStatus/PlayerStatus';
 import {Box, Button} from '@material-ui/core';
 import ModalWindow from '../ModalWindow/ModalWindow';
+import WinnerHistory from './WinnerHistory/WinnerHistory';
 
 
 const Game = () => {
@@ -33,12 +34,15 @@ const Game = () => {
 
     useEffect(() => {
         if (state.winner) {
+            dispatch(addWinnerToHistory(new Date()))
             dispatch(toggleStartGame(false))
         }
     }, [state.winner])
 
     return (
         <Box className="game">
+            <WinnerHistory/>
+
             <Board squares={currentStep.squares} onClick={handleClick}/>
 
             <Box ml={3}>

@@ -1,6 +1,6 @@
 import {gameParams} from '../../constants';
 import {
-    ADD_TO_HISTORY,
+    ADD_TO_HISTORY, ADD_WINNER_TO_HISTORY,
     CHANGE_FIRST_SIGN_TURN, GIVE_UP, RESET_INPUTS, RESET_NICKNAMES, SAVE_NICKNAMES,
     SET_WINNER, START_NEW_GAME, TOGGLE_MODAL_OPENER,
     TOGGLE_START_GAME, UPDATE_INPUTS, UPDATE_STEP_HISTORY
@@ -10,6 +10,8 @@ export const initialState = {
     isGameStarted: false,
     winner: null,
     modalIsOpen: false,
+
+    winnerHistory: [],
 
     history: [
         {
@@ -44,6 +46,26 @@ export const gameReducer = (state = initialState, action) => {
                     }
                 ],
             }
+        case ADD_WINNER_TO_HISTORY: {
+            let winner = null
+            const player = state.players.nicknames
+            const currentStep = state.history[state.history.length - 1]
+
+            if (player.firstPlayerName && player.secondPlayerName) {
+                currentStep.isXTurn ? winner = player.secondPlayerName : winner = player.firstPlayerName
+            }
+
+            return {
+                ...state,
+                winnerHistory: [
+                    ...state.winnerHistory,
+                    {
+                        date: action.payload.date,
+                        winner: winner ? winner : state.winner
+                    }
+                ]
+            }
+        }
         case TOGGLE_START_GAME:
             return {
                 ...state,
@@ -140,7 +162,7 @@ export const gameReducer = (state = initialState, action) => {
                     }
                 }
             }
-        case GIVE_UP:
+        case GIVE_UP: {
             const currentStep = state.history[state.history.length - 1]
             let winner = null
             currentStep.isXTurn ? winner = 'O' : winner = 'X'
@@ -149,6 +171,7 @@ export const gameReducer = (state = initialState, action) => {
                 winner: winner,
                 isGameStarted: false
             }
+        }
         default:
             return state
     }

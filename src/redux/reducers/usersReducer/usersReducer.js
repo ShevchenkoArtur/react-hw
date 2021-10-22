@@ -173,11 +173,14 @@ const usersReducer = (state = initialState, action) => {
                 }
             }
         case GET_WINNER:
-            return {
-                ...state,
-                isWinner: true,
-                winner: calculateWinner(state.users)
+            if(state.users.length) {
+                return {
+                    ...state,
+                    isWinner: true,
+                    winner: calculateWinner(state.users)
+                }
             }
+            return state
         default:
             return state
     }

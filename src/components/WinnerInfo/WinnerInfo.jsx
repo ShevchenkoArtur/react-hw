@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getWinner} from '../../redux/reducers/usersReducer/actions';
 
 const WinnerInfo = () => {
-    const {filteredUsers, isWinner, winner} = useSelector(state => state.users)
+    const {users, isWinner, winner} = useSelector(state => state.users)
     const dispatch = useDispatch()
 
     return (
@@ -24,7 +24,7 @@ const WinnerInfo = () => {
                         fontWeight='bold'
                         align='center'
                     >
-                        Total Participants: {filteredUsers.length}
+                        Total Participants: {users.length}
                     </Typography>
             }
             <Button

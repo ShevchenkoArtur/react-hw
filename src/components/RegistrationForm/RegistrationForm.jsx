@@ -1,21 +1,16 @@
 import React from 'react';
 import {Box, Button, TextField, Typography} from '@mui/material';
 import {useForm} from 'react-hook-form';
-import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useDispatch} from 'react-redux';
 import {createNewUser, toggleShowTimer, updateRegisterInputValues} from '../../redux/reducers/usersReducer/actions';
+import {registerUser} from '../../validationShemes/validationSchemes';
 
 const RegistrationForm = () => {
     const dispatch = useDispatch()
 
-    const validationScheme = yup.object().shape({
-        firstName: yup.string().required('First Name is required'),
-        secondName: yup.string().required('Second Name is required')
-    })
-
     const {handleSubmit, register, formState: {errors, isValid}, getValues} = useForm({
-        resolver: yupResolver(validationScheme),
+        resolver: yupResolver(registerUser),
         mode: 'onChange'
     })
 

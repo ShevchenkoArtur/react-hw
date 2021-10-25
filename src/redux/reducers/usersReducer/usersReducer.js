@@ -1,7 +1,8 @@
 import {
+    ADD_COMPETITION,
     ADD_USER,
-    CREATE_NEW_USER, DELETE_USER,
-    GET_USERS, GET_WINNER, RESET_TIMER,
+    CREATE_NEW_USER, DELETE_USER, GET_COMPETITIONS,
+    GET_USERS, GET_WINNER, RESET_TIMER, SEARCH_COMPETITIONS,
     SEARCH_USERS, START_TIMER, STOP_TIMER,
     TOGGLE_SHOW_TIMER,
     UPDATE_REGISTER_INPUT_VALUES, UPDATE_TEMP_TIME
@@ -9,10 +10,13 @@ import {
 import {calculateWinner, convertString, getId} from '../../../utils';
 
 const initialState = {
-    users: [],
-    filteredUsers: [],
-    searchValue: '',
+    users: {},
+    competitions: [],
+    competitionsFiltered: [],
+    searchCompetitionsValue: '',
+    searchUsersValue: '',
     showTimer: false,
+    winners: {},
 
     registerInputValues: {
         firstName: '',
@@ -39,43 +43,62 @@ const initialState = {
             save: true,
         }
     },
-
-    isWinner: false,
-    winner: {}
 }
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_USERS:
-            return {
-                ...state,
-                users: action.payload.users,
-                filteredUsers: action.payload.users
+            if (!state.users[action.payload.arrName]?.length) {
+                return {
+                    ...state,
+                    users: {
+                        ...state.users,
+                        [action.payload.arrName]: action.payload.arr,
+                        [action.payload.arrName + 'Filtered']: action.payload.arr
+                    }
+                }
             }
-        case SEARCH_USERS:
+            return state
+        case SEARCH_USERS: {
             const value = action.payload.newValue
+            const arrName = action.payload.arrName
             if (value) {
                 return {
                     ...state,
-                    searchValue: value,
-                    filteredUsers: state.users.filter(
-                        el => convertString(el.name).includes(convertString(value)) ||
-                            convertString(el.id).includes(convertString(value))
-                    )
+                    searchUsersValue: value,
+                    users: {
+                        ...state.users,
+                        [arrName + 'Filtered']: state.users[arrName + 'Filtered'].filter(
+                            el => convertString(el.name).includes(convertString(value)) ||
+                                convertString(el.id).includes(convertString(value))
+                        )
+                    }
                 }
             } else {
                 return {
                     ...state,
-                    searchValue: action.payload.newValue,
-                    filteredUsers: state.users
+                    searchUsersValue: value,
+                    users: {
+                        ...state.users,
+                        [arrName + 'Filtered']: state.users[arrName]
+                    }
                 }
             }
+        }
         case ADD_USER:
             return {
                 ...state,
                 showTimer: false,
-                users: [...state.users, {...state.newUser, time: state.timer.tempTime}],
-                filteredUsers: [...state.users, {...state.newUser, time: state.timer.tempTime}],
+                users: {
+                    [action.payload.arrName]: [
+                        ...state.users[action.payload.arrName],
+                        {...state.newUser, time: state.timer.tempTime}
+                    ],
+                    [action.payload.arrName + 'Filtered']: [
+                        ...state.users[action.payload.arrName + 'Filtered'],
+                        {...state.newUser, time: state.timer.tempTime}
+                    ]
+                },
                 timer: {
                     ...state.timer,
                     offset: 0,
@@ -91,8 +114,13 @@ const usersReducer = (state = initialState, action) => {
         case DELETE_USER:
             return {
                 ...state,
-                filteredUsers: state.filteredUsers.filter(el => el.id !== action.payload.id),
-                users: state.users.filter(el => el.id !== action.payload.id),
+                users: {
+                    ...state.users,
+                    [action.payload.arrName + 'Filtered']: state.users[action.payload.arrName + 'Filtered'].filter(
+                        el => el.id !== action.payload.id),
+                    [action.payload.arrName]: state.users[action.payload.arrName].filter(
+                        el => el.id !== action.payload.id)
+                }
             }
         case TOGGLE_SHOW_TIMER:
             return {
@@ -173,14 +201,52 @@ const usersReducer = (state = initialState, action) => {
                 }
             }
         case GET_WINNER:
-            if(state.users.length) {
+            if(state.users[action.payload.arrName].length) {
                 return {
                     ...state,
-                    isWinner: true,
-                    winner: calculateWinner(state.users)
+                    winners: {
+                        ...state.winners,
+                        [action.payload.arrName]: {
+                            ...state.winners[action.payload.arrName],
+                            isWinner: true,
+                            winner: calculateWinner(state.users[action.payload.arrName])
+                        }
+                    }
                 }
             }
             return state
+        case GET_COMPETITIONS:
+            if (!state.competitions?.length) {
+                return {
+                    ...state,
+                    competitions: action.payload.competitions,
+                    competitionsFiltered: action.payload.competitions
+                }
+            }
+            return state
+        case SEARCH_COMPETITIONS: {
+            const value = action.payload.newValue
+            if (value) {
+                return {
+                    ...state,
+                    searchCompetitionsValue: value,
+                    competitionsFiltered: state.competitionsFiltered.filter(
+                        el => convertString(el.name).includes(convertString(value)))
+                }
+            } else {
+                return {
+                    ...state,
+                    searchCompetitionsValue: value,
+                    competitionsFiltered: state.competitions
+                }
+            }
+        }
+        case ADD_COMPETITION:
+            return {
+                ...state,
+                competitions: [...state.competitions, {id: getId(), name: action.payload.newValue}],
+                competitionsFiltered: [...state.competitions, {id: getId(), name: action.payload.newValue}],
+            }
         default:
             return state
     }

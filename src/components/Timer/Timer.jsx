@@ -6,7 +6,7 @@ import {
 } from '../../redux/reducers/usersReducer/actions';
 import {formatTime} from '../../utils';
 
-const Timer = () => {
+const Timer = ({urlId}) => {
     const {newUser, timer} = useSelector(state => state.users)
     const dispatch = useDispatch()
 
@@ -31,7 +31,7 @@ const Timer = () => {
 
     const save = () => {
         const initialTime = timer.tempTime.split(',')[0]
-        initialTime !== '00:00:00' ? dispatch(addUser()) : alert('Time shouldn\'t be 00:00:00')
+        initialTime !== '00:00:00' ? dispatch(addUser(urlId)) : alert('Time shouldn\'t be 00:00:00')
     }
 
     return (

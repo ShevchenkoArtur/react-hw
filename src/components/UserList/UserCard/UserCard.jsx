@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import {deleteUser} from '../../../redux/reducers/usersReducer/actions';
 import style from './UserCard.module.css'
 
-const UserCard = ({user}) => {
+const UserCard = ({user, urlId}) => {
     const dispatch = useDispatch()
 
     return (
@@ -13,7 +13,7 @@ const UserCard = ({user}) => {
             <Typography>Name: {user.name}</Typography>
             <Typography>Time: {user.time}</Typography>
             <Box mt={2}>
-                <Button onClick={() => dispatch(deleteUser(user.id))} fullWidth>Delete</Button>
+                <Button onClick={() => dispatch(deleteUser(urlId, user.id))} fullWidth>Delete</Button>
             </Box>
         </Box>
     )
